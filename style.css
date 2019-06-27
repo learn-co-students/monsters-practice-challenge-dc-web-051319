@@ -1,0 +1,18 @@
+.monster-style {
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 10px;
+  margin: 10px;
+  width: 50%;
+
+}
+
+.monster-style h2 {
+  font-family: tahoma;
+}
+
+.monster-style li {
+  font-family: courier;
+}
