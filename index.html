@@ -2,15 +2,79 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <style>
+      :root {
+        --top: 134px;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        width: 98%;
+        background: white;
+        height: var(--top);
+        padding-right: 2%;
+      }
+      form {
+        padding-bottom: 1em;
+      }
+      form label:not(:first-child),
+      form input:last-child {
+        margin-left: 1em;
+      }
+      #monster-container {
+        padding-top: var(--top);
+      }
+      table {
+        border-collapse: collapse;
+        transition: all .25s;
+        width: 100%;
+      }
+      table tr {
+        background: white;
+        border: 1px solid black;
+        padding-bottom: 10px;
+      }
+      table tr:first-child {
+        background: green;
+        color: lightgray;
+      }
+      table tr:nth-child(even) {
+        background: lightgray;
+      }
+      table th,
+      table td {
+        padding: 5px 10px;
+        vertical-align: top;
+      }
+      table tr th:first-child,
+      table tr td:first-child {
+        text-align: center;
+      }
+      .button-container {
+        float: right;
+      }
+    </style>
     <title>Monstr</title>
   </head>
   <body>
-    <h1>Monstr Inc.</h1>
-    <div id='create-monster'></div>
+    <header>
+        <h1>Monstr Inc.</h1>
+        <div class="button-container">
+          <button id="back"><=</button>
+          <button id="forward">=></button>
+        </div>
+        <form id='create-monster'>
+          <label for="name">Name: </label>
+          <input type="text" id="name" name="monster_name" required>
+          <label for="age">Age: </label>
+          <input type="text" id="age" name="monster_age" required>
+          <label for="description">Description:</label>
+          <input type="text" id="desc" name="monster_desc" required>
+          <input type="submit" value="Create Monster">
+        </form>
+    </header>
     <div id='monster-container'></div>
-    <button id="back"><=</button>
-    <button id="forward">=></button>
-    <!-- <script src='js/index.js'></script> -->
-    <script src='js/demo.js'></script>
+    <script src='js/index.js'></script> 
+    <!-- <script src='js/demo.js'></script> -->
   </body>
 </html>
