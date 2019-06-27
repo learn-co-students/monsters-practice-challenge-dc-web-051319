@@ -2,7 +2,12 @@ function fetchMonsterList(limit, page) {
     fetch(`http://localhost:3000/monsters?_limit=${limit}&_page=${page}`)
         .then(response => response.json())
         .then(monsters => {
-            renderMonsterList(monsters);
+            if (monsters.length === 0) {
+                currentPage -= 1;
+                fetchMonsterList(limit, currentPage);
+            } else {
+                renderMonsterList(monsters);
+            };
         });
 };
 
@@ -55,7 +60,7 @@ function submitMonster(name, age, description) {
     fetch("http://localhost:3000/monsters", configObject)
         .then(response => response.json())
         .then(monster => {
-            window.alert(`${monster.name} has been created!`)
+            window.alert(`Your monster "${monster.name}" has been created!`)
             clearMonsterList();
             fetchMonsterList(limit, currentPage);
         })
@@ -77,9 +82,7 @@ function createNavEvents() {
     });
     
     forwardButton.addEventListener("click", (event) => {
-        if (true) {
-            currentPage += 1;
-        };
+        currentPage += 1;
         clearMonsterList();
         fetchMonsterList(limit, currentPage);
     });
