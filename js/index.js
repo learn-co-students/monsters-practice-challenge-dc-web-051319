@@ -36,6 +36,34 @@ function clearMonsterList() {
     }
 };
 
+function submitMonster(name, age, description) {
+    let formData = {
+        name: name,
+        age: age,
+        description: description
+    };
+
+    let configObject = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+    };
+
+    fetch("http://localhost:3000/monsters", configObject)
+        .then(response => response.json())
+        .then(monster => {
+            window.alert(`${monster.name} has been created!`)
+            clearMonsterList();
+            fetchMonsterList(limit, currentPage);
+        })
+        .catch(error => {
+            window.alert(error.message);
+        });
+};
+
 function createNavEvents() {
     let backButton = document.querySelector("#back");
     let forwardButton = document.querySelector("#forward");
@@ -57,10 +85,28 @@ function createNavEvents() {
     });
 };
 
+function createFormEvents() {
+    let monsterForm = document.querySelector("#new-monster");
+    let monsterName = monsterForm.querySelector("#monster-name");
+    let monsterAge = monsterForm.querySelector("#monster-age");
+    let monsterDescription = monsterForm.querySelector("#monster-description");
+
+    monsterForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        submitMonster(
+            monsterName.value, 
+            monsterAge.value,
+            monsterDescription.value
+        );
+        monsterForm.reset();
+    });
+};
+
 const limit = 50;
 let currentPage = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchMonsterList();
     createNavEvents();
+    createFormEvents();
 });
