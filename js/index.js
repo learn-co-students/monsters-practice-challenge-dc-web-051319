@@ -32,15 +32,26 @@ function trulyGetAllMonsters() {
 }
 
 function addMonsterToDOM(monster) {
-    let div = document.createElement("div")
-    div.innerText = `${monster.name}, ${parseInt(monster.age)} years`
 
-    let monsterContainer = document.getElementById("monster-container")
-    monsterContainer.appendChild(div)
-    
-    let para = document.createElement("p")
-    para.innerText = monster.description
-    div.appendChild(para)
+    let monsterContainer = document.getElementById("monster-container");
+
+    let monsterDiv = document.createElement("div");
+    monsterContainer.appendChild(monsterDiv);
+
+    let monsterHeader = document.createElement("h2");
+    monsterHeader.innerText = monster.name;
+    monsterDiv.appendChild(monsterHeader);
+
+    let monsterAge = document.createElement("h3");
+    monsterAge.innerText = `Age: ${parseInt(monster.age)} years`;
+    monsterDiv.appendChild(monsterAge);
+
+    let monsterDescription = document.createElement("p");
+    monsterDescription.innerText = monster.description;
+    monsterDiv.appendChild(monsterDescription);
+
+    let horizontalBar = document.createElement("hr")
+    monsterDiv.appendChild(horizontalBar)
 }
 
 function createMonster(event) {
@@ -71,7 +82,6 @@ function nextPage() {
         pageCount = Math.ceil(max/50);
     }
     console.log(pageCount)
-    let pageMax = document.getElementById("")
     let monsterContainer = document.getElementById("monster-container");
     monsterContainer.innerHTML = "";
     getAllMonsters();

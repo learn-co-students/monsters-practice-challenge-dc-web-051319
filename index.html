@@ -5,21 +5,22 @@
     <title>Monstr</title>
   </head>
   <body>
-    <h1>Monstr Inc.</h1>
+    <h1>Monstr Inc</h1>
     <div id="create-monster">
       <form id="monster-form">
-        Name:<input type="text" id="monster-name">
-        Age:<input type="number" id="monster-age">
-        Description:<input type="text" id="monster-description">
-        <input type="submit" value="rawr">
+        <em>Name:</em><br><input type="text" id="monster-name" placeholder="monster name"><br><br>
+        <em>Age:</em><br><input type="number" id="monster-age" placeholder="monster age"><br><br>
+        <em>Description:</em><br><textarea type="text" id="monster-description" placeholder="about monster"></textarea><br><br>
+        <input type="submit" value="Create Monster"><br><br>
       </form>
     </div>
     <div>
-    <button id="back"><=</button>
-    <button id="forward">=></button>
+    <button id="back">Previous Page</button>
+    <button id="forward">Next Page</button>
   </div>
     <br>
-    <div id="monster-container">
+      <div id="monster-container">
+        <hr>
     </div>
     <script src="js/index.js"></script>
   </body>
