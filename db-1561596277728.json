@@ -6005,24 +6005,6 @@
       "age": 13,
       "description": "131313",
       "id": 1001
-    },
-    {
-      "name": "s",
-      "age": "s",
-      "description": "s",
-      "id": 1002
-    },
-    {
-      "name": "Kemunto",
-      "age": "23",
-      "description": "scary",
-      "id": 1003
-    },
-    {
-      "name": "Kemunto",
-      "age": "23",
-      "description": "scary",
-      "id": 1004
     }
   ]
 }
